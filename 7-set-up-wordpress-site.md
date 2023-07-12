@@ -1,12 +1,12 @@
 # Set up a WordPress Site
 
-Replace all instances of 'tutorialinux' with the system username that you'll use for this site. It makes sense to use a truncated version of your domain for this, e.g. for 'tutorialinux.com' I would use 'tutorialinux'.
+Replace all instances of 'mphho' with the system username that you'll use for this site. It makes sense to use a truncated version of your domain for this, e.g. for 'mphho.com' I would use 'mphho'.
 
 
 ## Create a system user for this site
-I'm using the username 'tutorialinux' in all of these examples, but you can change it to something that reflects your website's name
+I'm using the username 'mphho' in all of these examples, but you can change it to something that reflects your website's name
 
-    export WEBSITEUSER=tutorialinux
+    export WEBSITEUSER=mphho
     
     useradd -s /bin/bash -m -d /home/$WEBSITEUSER $WEBSITEUSER
     mkdir -p /home/$WEBSITEUSER/logs
@@ -21,19 +21,19 @@ This will make sure your nginx AND php processes can read all website-related fi
 
 ## Create nginx vhost config file
 
-Add the following content to /etc/nginx/conf.d/tutorialinux.conf. Replace all occurrences of 'tutorialinux' in this file with your IP address or domain name (if you have one):
+Add the following content to /etc/nginx/conf.d/mphho.conf. Replace all occurrences of 'mphho' in this file with your IP address or domain name (if you have one):
 
-    # nano /etc/nginx/conf.d/tutorialinux.conf
+    # nano /etc/nginx/conf.d/mphho.conf
 
 ```
 server {
     listen       80;
-    server_name  www.tutorialinux.com;
+    server_name  www.mphho.com;
 
     client_max_body_size 20m;
 
     index index.php index.html index.htm;
-    root   /home/tutorialinux/public_html;
+    root   /home/mphho/public_html;
 
     location / {
         try_files $uri $uri/ /index.php?q=$uri&$args;
@@ -80,7 +80,7 @@ server {
 
 
             # General FastCGI handling
-            fastcgi_pass unix:/var/run/php/tutorialinux.sock;
+            fastcgi_pass unix:/var/run/php/mphho.sock;
             fastcgi_pass_header Set-Cookie;
             fastcgi_pass_header Cookie;
             fastcgi_ignore_headers Cache-Control Expires Set-Cookie;
@@ -107,8 +107,8 @@ server {
 
 server {
     listen       80;
-    server_name  tutorialinux.com;
-    rewrite ^/(.*)$ http://www.tutorialinux.com/$1 permanent;
+    server_name  mphho.com;
+    rewrite ^/(.*)$ http://www.mphho.com/$1 permanent;
 }
 ```
 
@@ -123,18 +123,18 @@ server {
 Add the following content to a new php-fpm pool configuration file:
 
 ```
-nano /etc/php/8.1/fpm/pool.d/tutorialinux.conf
+nano /etc/php/7.4/fpm/pool.d/mphho.conf
 ```
 
-Replace all occurrences of "tutorialinux" in the configuration file content below with your site name.
+Replace all occurrences of "mphho" in the configuration file content below with your site name.
 
 ```
-[tutorialinux]
-listen = /var/run/php/tutorialinux.sock
-listen.owner = tutorialinux
+[mphho]
+listen = /var/run/php/mphho.sock
+listen.owner = mphho
 listen.group = www-data
 listen.mode = 0660
-user = tutorialinux
+user = mphho
 group = www-data
 pm = dynamic
 pm.max_children = 75
@@ -144,19 +144,19 @@ pm.max_spare_servers = 20
 pm.max_requests = 500
 
 php_admin_value[upload_max_filesize] = 25M
-php_admin_value[error_log] = /home/tutorialinux/logs/phpfpm_error.log
-php_admin_value[open_basedir] = /home/tutorialinux:/tmp
+php_admin_value[error_log] = /home/mphho/logs/phpfpm_error.log
+php_admin_value[open_basedir] = /home/mphho:/tmp
 ```
 
 ## Clean up the original php-fpm pool config file
 We've kept this around just to prevent errors while restarting php-fpm. Since we just created a new php-fpm pool config file, let's clean the old one up:
 
-    rm /etc/php/8.1/fpm/pool.d/www.conf
+    rm /etc/php/7.4/fpm/pool.d/www.conf
 
 
 ## Create the php-fpm logfile
 
-    sudo -u tutorialinux touch /home/tutorialinux/logs/phpfpm_error.log
+    sudo -u mphho touch /home/mphho/logs/phpfpm_error.log
 
 
 ## Create Site Database + DB User
@@ -172,13 +172,13 @@ Now log into your mysql database with the root account, using the password you c
 
 This will prompt you for the MySQL root user’s password, and then give you a database shell. This shell will let you enter the following commands to create the WordPress database and user, along with appropriate permissions. Swap out ‘yoursite’ for your truncated domain name. This name can't contain any punctuation or special characters.
 
-Replace `chooseapassword` with the strong password that you just created with the shell command above, and `tutorialinux` with your site name.
+Replace `chooseapassword` with the strong password that you just created with the shell command above, and `mphho` with your site name.
 
 ```
 # Log into mysql
-CREATE DATABASE tutorialinux;
-CREATE USER 'tutorialinux'@'localhost' IDENTIFIED BY 'chooseapassword';
-GRANT ALL PRIVILEGES ON tutorialinux.* TO tutorialinux@localhost;
+CREATE DATABASE mphho;
+CREATE USER 'mphho'@'localhost' IDENTIFIED BY 'chooseapassword';
+GRANT ALL PRIVILEGES ON mphho.* TO mphho@localhost;
 FLUSH PRIVILEGES;
 ```
 
@@ -193,9 +193,9 @@ Now it's time to actually download and install the WordPress application.
 
 ### Download WordPress
 
-Become your site user (named tutorialinux in my case) and download the WordPress application:
+Become your site user (named mphho in my case) and download the WordPress application:
 
-    su - tutorialinux
+    su - mphho
     cd
     wget https://wordpress.org/latest.tar.gz
 
@@ -218,7 +218,7 @@ Become your site user (named tutorialinux in my case) and download the WordPress
 
 ### Set proper file permissions on your site files
 
-Make sure you're in your user's home/public_html directory. I'm still using the WEBSITEUSER variable that we set earlier -- in my case it's set to `tutorialinux`:
+Make sure you're in your user's home/public_html directory. I'm still using the WEBSITEUSER variable that we set earlier -- in my case it's set to `mphho`:
 
 ```
 cd /home/$WEBSITEUSER/public_html
@@ -229,7 +229,7 @@ find . -type f -exec chmod 644 {} \;
 
 ## Restart your services
 
-    systemctl restart php8.1-fpm
+    systemctl restart php7.4-fpm
     systemctl restart nginx
 
 
@@ -249,8 +249,8 @@ nano /etc/hosts
 ```
 Add two lines like the following, with the IP and hostnames replaced by your WordPress server's IP address and your domain name, respectively:
 ```
-1.2.3.4    tutorialinux.com
-1.2.3.4    www.tutorialinux.com
+1.2.3.4    mphho.com
+1.2.3.4    www.mphho.com
 ```
 
 This will trick applications (only on the local machine) to use this mapping, INSTEAD of the public DNS system, to resolve your hostname.
@@ -264,4 +264,4 @@ You'll be able to run the installer by navigating to your server IP address in a
 
 ### Secure the wp-config.php file so other users can’t read DB credentials
 
-    chmod 640 /home/tutorialinux/public_html/wp-config.php
+    chmod 640 /home/mphho/public_html/wp-config.php
