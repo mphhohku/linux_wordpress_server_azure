@@ -12,7 +12,7 @@ Content:
         port 2812
         use address localhost  # only accept connection from localhost
         # allow localhost        # allow localhost to connect to the server and
-        allow youruser:yourpassword # no plaintext password on GitHub
+        allow mphho:yourpassword # no plaintext password on GitHub
 
     # Check nginx
     # Try writing an nginx config using the other examples in this file!
@@ -48,7 +48,7 @@ For your first website, add a file named yoursitename.cnf, e.g. mphho.cnf
         if size > 15 MB then exec "/usr/local/sbin/logrotate -f /var/www/mphho/sites/mphho.com/error_log"
 
 
-Restart monit and you're good to go!
-
+After configuring appropriate access, restart monit and it should be good to go!
+    chmod 600 /usr/local/etc/monitrc
     service monit restart
     systemctl restart monit
