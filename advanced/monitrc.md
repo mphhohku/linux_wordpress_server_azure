@@ -6,13 +6,13 @@ Content:
 
     set daemon  30
     set logfile /var/log/monit.log
-    set alert user@example.org
+    set alert mphhohku@outlook.com
 
     set httpd
         port 2812
         use address localhost  # only accept connection from localhost
         # allow localhost        # allow localhost to connect to the server and
-        allow youruser:yourpassword
+        allow youruser:yourpassword # no plaintext password on GitHub
 
     # Check nginx
     # Try writing an nginx config using the other examples in this file!
@@ -25,7 +25,7 @@ Content:
           if failed port 3306 protocol mysql then alert
 
     # Check php-fpm
-    check process phpfpm with pidfile /run/php/php7.0-fpm.pid
+    check process phpfpm with pidfile /run/php/php7.4-fpm.pid
           if cpu > 50% for 2 cycles then alert
           # if total cpu > 60% for 5 cycles then restart
           if memory > 300 MB then alert
@@ -38,14 +38,14 @@ Content:
 
 
 That's your base file. Now, let's add some site files at /etc/monit.d/
-For your first website, add a file named yoursitename.cnf, e.g. tutorialinux.cnf
+For your first website, add a file named yoursitename.cnf, e.g. mphho.cnf
 
-    # Site monitoring fragment for tutorialinux.com
-    check host tutorialinux.com with address tutorialinux.com
+    # Site monitoring fragment for mphho.com
+    check host mphho.com with address mphho.com
         if failed port 80 protocol http for 2 cycles then alert
 
-    check file access.log with path /var/www/tutorialinux/sites/tutorialinux.com/error_log
-        if size > 15 MB then exec "/usr/local/sbin/logrotate -f /var/www/tutorialinux/sites/tutorialinux.com/error_log"
+    check file access.log with path /var/www/mphho/sites/mphho.com/error_log
+        if size > 15 MB then exec "/usr/local/sbin/logrotate -f /var/www/mphho/sites/mphho.com/error_log"
 
 
 Restart monit and you're good to go!
