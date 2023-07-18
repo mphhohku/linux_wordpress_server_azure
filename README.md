@@ -1,29 +1,32 @@
 # Hands-on Linux: Self-hosted WordPress for Linux Beginners
 
-Code and configuration snippets for the [Hands-on Linux: Self-Hosted WordPress for Linux Beginners Course](https://www.udemy.com/hands-on-linux-self-hosted-wordpress-for-linux-beginners/) course. 
+This is a repository of an adapation of the Udemy Course [Hands-on Linux: Self-Hosted WordPress for Linux Beginners](https://www.udemy.com/hands-on-linux-self-hosted-wordpress-for-linux-beginners/) specifically for Microsoft Azure. Grateful for Mr David Cohen's instructions.
+
+You may view the WordPress site [here](https://www.mphho.com).
 
 ## Main features
 
 Azure VM Setup
- - using the cheapest Linux VM (B1s) with 1GB RAM
+ - Using the cheapest Linux VM (B1s) with 1GB RAM
 
 Linux setup
- - nginx: with performance tuning (using previously set caching rules/compression in the gzip section in /etc/nginx/nginx.conf)
- - mysql
- - php-fpm
+ - Nginx: with performance tuning (using previously set caching rules/compression in the gzip section in /etc/nginx/nginx.conf)
+ - MySQL
+ - PHP-fpm
  - WordPress
 
 WordPress setup
  - no admin username in the air
 
 Monitoring
- - monit
+ - Monit
 
 HTTPS
- - letsencrypt certbot
+ - Letsencrypt Certbot
 
 Backup
- - crontab
+ - Crontab
+ - tar
 
 ## Reflections
 
@@ -36,3 +39,4 @@ Major hiccups and mitigation (I added my own notes in the respective sections)
 Future improvement
  - use mysqltuner after a week of use
  - automation using Hashicorp Packer
+ - high availability
