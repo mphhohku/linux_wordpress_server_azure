@@ -1,6 +1,6 @@
-## Additional notes by mphho
+# Additional notes by mphho
 
-### What to back up
+## What to back up
 1. Application files
 - /home/mphho
 
@@ -16,7 +16,7 @@
 - /etc/letsencrypt
 - /etc/crontab
 
-### offline backup
+## offline backup
 
 1. Backing up the filesystem:
 ```
@@ -153,4 +153,4 @@
     cp -r crontab.2023-07-18 /etc/crontab
 ```
 
-### online Azure backup
+## Online Azure backup
