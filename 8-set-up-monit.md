@@ -49,21 +49,28 @@ For your first website, add a file named yoursitename.cnf, e.g. mphho.cnf
 
 
 After configuring appropriate access, restart monit and it should be good to go!
+```
     chmod 600 /usr/local/etc/monitrc
     service monit restart
     systemctl restart monit
+```
 
 Now logout root. Return to using the default azure user account.
+```
     ssh-keygen -t ed25519
     cat /.ssh/id_ed25519.pub
     su - 
     nano /.ssh/authorized_keys
+```
 
 Copy the public key from the previous step and paste it into **a new line** of the authorized_keys file. Save and exit.
+```
     chmod 600 /.ssh/authorized_keys
-    exit
+```
 
-Conduct SSH forwarding to access the monit web portal on the localhost on the linux VM itself instead of the VM public IP address from the browser
+Conduct SSH forwarding to access the monit web portal on the localhost on the linux VM itself instead of the VM public IP address from the browser.
+```
     ssh -L <customportnumber>:localhost:2812 azureuser@<yourpublicipaddress>
     netstat -tupln # You should see the custom port number you specified in the previous step listening SSH
     curl --user mphho:yourpassword http://localhost:<customportnumber> # You should be able to see the html of the monit web portal
+```
