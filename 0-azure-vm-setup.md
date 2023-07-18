@@ -1,3 +1,5 @@
+## Additional notes by mphho
+
 In the Azure Portal, search for Virtual Machines.
 
 1. Create a new virtual machine

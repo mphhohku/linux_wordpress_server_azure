@@ -266,7 +266,7 @@ You'll be able to run the installer by navigating to your server IP address in a
 
     chmod 640 /home/mphho/public_html/wp-config.php
 
-## (New content) If you mistakenly configured the site to be HTTPS://www.mphho.com/ instead of HTTP://www.mphho.com/ in the backend settings on the WordPress dashboard...
+## (Additional notes by mphho) If you mistakenly configured the site to be HTTPS://www.mphho.com/ instead of HTTP://www.mphho.com/ in the backend settings on the WordPress dashboard...
 ```
     mysql -u root -p
     show databases;

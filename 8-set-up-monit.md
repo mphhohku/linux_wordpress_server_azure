@@ -55,7 +55,7 @@ After configuring appropriate access, restart monit and you should see it as act
     systemctl restart monit
 ```
 
-## New content
+## Additional notes by mphho
 
 Now logout root. Return to using the default azure user account.
 ```

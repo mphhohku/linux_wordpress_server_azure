@@ -15,7 +15,7 @@ This will detect the domains you have nginx configs for on your server (even if 
 *Note* This will modify your nginx config, so make a backup before you do this:
 
     sudo certbot --nginx
-Agree to everything. Select all sites for HTTPS activation. Select Redirect.
+(Additional notes by mphho) Agree to everything. Select all sites for HTTPS activation. Select Redirect.
 
 ## Renewal
 Renewal is automatic by default -- installing certbot creates an automatic renewal script in /etc/cron.d/certbot
