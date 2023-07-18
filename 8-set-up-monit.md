@@ -48,7 +48,7 @@ For your first website, add a file named yoursitename.cnf, e.g. mphho.cnf
         if size > 15 MB then exec "/usr/local/sbin/logrotate -f /var/www/mphho/sites/mphho.com/error_log"
 
 
-After configuring appropriate access, restart monit and it should be good to go!
+After configuring appropriate access, restart monit and you should see it as active and running!
 ```
     chmod 600 /usr/local/etc/monitrc
     service monit restart
