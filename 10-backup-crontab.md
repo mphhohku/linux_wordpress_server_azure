@@ -34,12 +34,12 @@
     nano /etc/crontab
 ```
 
-Add the following line to the end of the file:
+- Add the following line to the end of the file:
 ```
     0 0 * * * root usr/bin/tar -zcf /root/site_backups/mphho-$(/bin/date +\%Y-\%m-\%d).tar.gz --absolute-names /home/mphho
 ```
 
-When needed to restore:
+- When needed to restore:
 ```
     # switch to root
     su -
@@ -53,7 +53,7 @@ When needed to restore:
 
 2. Backing up the MySQL databases
 
-Set up root access
+- Set up root access
 ```
     mysql -u root
     # Access denied for user 'root'@'localhost' (using password: NO)
@@ -61,23 +61,23 @@ Set up root access
     nano .my.cnf
 ```
 
-Add the following lines to .my.cnf
+- Add the following lines to .my.cnf
 ```
     [client]
     user=root
     password=yourpassword # no password in plaintext on GitHub
 ```
 
-Login again.
+- Login again.
 ```
     mysql -u root -p
     chmod 600 .my.cnf
 ```
 
-If this error shows
-```ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)```
-Try to use a much longer and stronger password first.
-If still does not work, run the following as root.
+- If this error shows
+```ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)```, try to use a much longer and stronger password first.
+
+- If still does not work, run the following as root.
 ```
     su -
     service mysql start
@@ -99,14 +99,14 @@ If still does not work, run the following as root.
     mysql -u root -p # should work now
 ```
 
-Back up the databases now
+- Back up the databases now
 ```
     mkdir -p /home/mphho/backups/db
     mysqldump --add-drop-table --databases mphho > /home/mphho/backups/db/$(/bin/date +\%Y-\%m-\%d).sql.bak
     ls /home/mphho/backups/db # you should see the backup file
 ```
 
-To restore the databse
+- To restore the databse
 ```
     cd /home/mphho/backups/db
     mysql -u root mphho < 2023-07-08.sql.bak
@@ -136,7 +136,7 @@ To restore the databse
     0 0 * * * root cp -r /etc/crontab /home/mphho/backups/config/crontab.$(/bin/date +\%Y-\%m-\%d)
 ```
 
-To restore the files
+- To restore the files
 ```
     cd /home/mphho/backups/config
     mv /etc/nginx/conf.d/mphho.conf /etc/nginx/conf.d/mphho.conf.COMPROMISED
