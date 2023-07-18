@@ -25,7 +25,7 @@ sudo chown -R $BASENAME:www-data /home/$BASENAME
 sudo -u ${BASENAME} touch /home/${BASENAME}/logs/phpfpm_error.log
 
 # Cleanup old pool conf
-sudo rm /etc/php/8.1/fpm/pool.d/www.conf
+sudo rm /etc/php/7.4/fpm/pool.d/www.conf
 
 
 ## Database

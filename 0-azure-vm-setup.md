@@ -8,7 +8,7 @@ In the Azure Portal, search for Virtual Machines.
 - Region: East Asia (for Hong Kong)
 - Availability options: No infrastructure redundancy required
 - Security type: standard
-- Image: Ubuntu Server 20.04 LTS - x64 Gen2
+- Image: Ubuntu Server 22.04 LTS - x64 Gen2
 - VM architecture: x64
 - Size: Standard_B1s (1 vcpus, 1 GiB memory)
 - Authentication type: SSH public key

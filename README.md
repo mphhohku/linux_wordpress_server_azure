@@ -22,6 +22,9 @@ Monitoring
 HTTPS
  - letsencrypt certbot
 
+Backup
+ - crontab
+
 ## Reflections
 
 Major hiccups and mitigation (I added my own notes in the respective sections)
@@ -32,3 +35,4 @@ Major hiccups and mitigation (I added my own notes in the respective sections)
 
 Future improvement
  - use mysqltuner after a week of use
+ - automation using Hashicorp Packer

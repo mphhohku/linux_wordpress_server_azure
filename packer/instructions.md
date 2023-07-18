@@ -5,7 +5,7 @@
 3. You can use what's in this directory to get started!
 
 ## Set up authentication
-You'll need API access to your amazon account. To get this set up, log into your AWS Admin Console and navigate to:
+You'll need API access to your Azure account. To get this set up, log into your Azure console and navigate to:
 	- IAM
 	- Users
 	- "Add Users" and pick a username

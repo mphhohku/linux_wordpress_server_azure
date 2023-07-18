@@ -55,7 +55,7 @@ build {
     inline = [
       "sudo mv ~/nginx.conf /etc/nginx/nginx.conf",
       "sudo mv ~/wordpress_nginx.conf /etc/nginx/conf.d/tutorialinux.conf",
-      "sudo mv ~/phppool.conf /etc/php/8.1/fpm/pool.d/tutorialinux.conf",
+      "sudo mv ~/phppool.conf /etc/php/7.4/fpm/pool.d/tutorialinux.conf",
     ]
   }
   provisioner "shell" {
