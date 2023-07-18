@@ -265,3 +265,14 @@ You'll be able to run the installer by navigating to your server IP address in a
 ### Secure the wp-config.php file so other users can’t read DB credentials
 
     chmod 640 /home/mphho/public_html/wp-config.php
+
+## (New content) If you mistakenly configured the site to be HTTPS://www.mphho.com/ instead of HTTP://www.mphho.com/ in the backend settings on the WordPress dashboard...
+```
+    mysql -u root -p
+    show databases;
+    use mphho;
+    update wp_options set option_value = 'http://www.mphho.com' where option_name = 'siteurl';
+    update wp_options set option_value = 'http://www.mphho.com' where option_name = 'home';
+    exit
+```
+If forgot to type “www.”, this would result in indefinite redirect loop from www.mphho.com to mphho.com, resulting in failure of login to dashboard.

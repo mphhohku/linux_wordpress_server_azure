@@ -55,6 +55,8 @@ After configuring appropriate access, restart monit and you should see it as act
     systemctl restart monit
 ```
 
+## New content
+
 Now logout root. Return to using the default azure user account.
 ```
     ssh-keygen -t ed25519
