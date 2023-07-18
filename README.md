@@ -11,3 +11,12 @@ Automation of configurations
 
 Monitoring
 
+Reflections:
+
+Major hiccups and mitigation
+- VM size malconfiguration
+- WordPress malconfiguration
+- Linux VM becomes slow and unresponsive after a weekend: restart the vm with sudo reboot
+- Unable to conduct SSH forwarding to Monit web portal: set up SSH key for default azure user first before using ssh tunneling
+
+Future improvement
