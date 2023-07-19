@@ -23,7 +23,7 @@
 ```
 	az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<subscription_id> --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
-- Note the output like the following:
+- Note the output like the following: (This is only an example. These are not real.)
 ```
 {
     "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
