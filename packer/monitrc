@@ -1,0 +1,30 @@
+set daemon  30
+set logfile /var/log/monit.log
+set alert mphhohku@outlook.com
+
+set httpd
+    port 2812
+    use address localhost  # only accept connection from localhost
+    # allow localhost        # allow localhost to connect to the server and
+    allow mphho:yourpassword # no plaintext password on GitHub
+
+# Check nginx
+# Try writing an nginx config using the other examples in this file!
+## check process nginx with pidfile <yournginxpidfile>
+## if failed...
+
+# Check MySQL
+check host localmysql with address 127.0.0.1
+      if failed ping then alert        
+      if failed port 3306 protocol mysql then alert
+
+# Check php-fpm
+check process phpfpm with pidfile /run/php/php8.1-fpm.pid
+      if cpu > 50% for 2 cycles then alert
+      # if total cpu > 60% for 5 cycles then restart
+      if memory > 300 MB then alert
+      # if total memory > 500 MB then restart
+
+
+# include files for individual sites
+include /etc/monit.d/*

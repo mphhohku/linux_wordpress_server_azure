@@ -3,8 +3,8 @@ set -eu
 
 # From https://github.com/groovemonkey/hands_on_linux-self_hosted_wordpress_for_linux_beginners/blob/master/7-set-up-wordpress-site.md
 
-# Replace all instances of 'tutorialinux' with the system username that you'll use for this site. It makes sense to use a truncated version of your domain for this, e.g. for 'tutorialinux.com' I would use 'tutorialinux'.
-BASENAME=tutorialinux
+# Replace all instances of 'mphhopackertest' with the system username that you'll use for this site. It makes sense to use a truncated version of your domain for this, e.g. for 'mphhopackertest.com' I would use 'mphhopackertest'.
+BASENAME=mphhopackertest 
 PACKER_LOGFILE=/etc/packer-setup.log
 echo "PACKER SETUP SCRIPT: STARTING!" | sudo tee -a $PACKER_LOGFILE
 
@@ -23,10 +23,6 @@ sudo chown -R $BASENAME:www-data /home/$BASENAME
 
 # Create the php-fpm logfile, as the website user
 sudo -u ${BASENAME} touch /home/${BASENAME}/logs/phpfpm_error.log
-
-# Cleanup old pool conf
-sudo rm /etc/php/7.4/fpm/pool.d/www.conf
-
 
 ## Database
 
