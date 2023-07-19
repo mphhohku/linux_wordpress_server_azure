@@ -1,11 +1,13 @@
 # Automation of the creation of a Linux VM image on Azure using HashiCorp Packer (by mphho)
 
 ## Basics
-1. Install packer [here](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) on your working desktop (not on the Azure VM).
-- As of July 19, 2023, for Windows, run PowerShell as Administrator and paste the following command:
+1. Install [Chocolatey](https://chocolatey.org/install) and [Packer](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) on your working desktop (not on the Azure VM).
+- As of July 19, 2023, for Windows, run PowerShell as Administrator and paste the following commands:
 ```
+	# install chocolatey
 	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+	#install packer
 	choco install packer
 ```
 
