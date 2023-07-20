@@ -49,4 +49,4 @@ Edit the ``wordpress-azure-ubuntu.pkr.hcl`` file in the ``packer`` directory. Re
 	packer build wordpress-azure-ubuntu.pkr.hcl
 ```
 3. If the program fails at some point, the program will delete the resource groups created by packer. Do not interrupt or exit the program. When it finishes, you can try again.
-4. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image.
+4. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image. Also, note the SQL password several lines above.
