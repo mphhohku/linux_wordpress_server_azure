@@ -50,3 +50,20 @@ Edit the ``wordpress-azure-ubuntu.pkr.hcl`` file in the ``packer`` directory. Re
 ```
 3. If the program fails at some point, the program will delete the resource groups created by packer. Do not interrupt or exit the program. When it finishes, you can try again.
 4. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image. Also, note the SQL password several lines above.
+
+## Create a virtual machine from the image
+1. Go to Azure portal and serach for Images. Click on the image you just created.
+2. Click on Create VM.
+3. Fill in the details. You can use the following values:
+- Name: TestVM
+- Availability options: No infrastructure redundancy required
+- Select inbound port: HTTP, SSH
+- Licensing: Other
+4. In the networking tab, leave everything else as default.
+5. Review + Create
+
+## Test if you can access the website
+1. Go to the resource page of the VM. Copy the public IP address.
+2. Paste the IP address in your browser. You should see the WordPress setup site.
+3. Congratulations, your project is finished. You can now delete the resource group and the image.
+4. If you plan to keep using the VM, remember to manually install other packages such as Monit and Certbot as well as to reload/restart the services.
