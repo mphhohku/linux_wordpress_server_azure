@@ -48,26 +48,5 @@ Edit the ``wordpress-azure-ubuntu.pkr.hcl`` file in the ``packer`` directory. Re
 ```
 	packer build wordpress-azure-ubuntu.pkr.hcl
 ```
-3. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image.
-
-## Create a virtual machine from the image
-1. In the Azure portal, select Create a resource > Compute > Virtual machine.
-2. On the Basics tab, enter the following values:
-- Subscription: Select your subscription.
-- Resource group: Select the resource group that you created.
-- Virtual machine name: Enter a name for the virtual machine.
-- Region: Select the region that you used when you created the resource group.
-- Image: Select the image that you created.
-- Size: Select a size for the virtual machine.
-- Authentication type: Select Password.
-- Username: Enter a username for the virtual machine.
-- Password: Enter a password for the virtual machine.
-3. Select Review + create, and then select Create.
-
-## Connect to the virtual machine
-1. In the Azure portal, select Virtual machines.
-2. Select the virtual machine that you created.
-3. On the Overview page, select Connect.
-4. On the Connect to virtual machine page, select Download RDP file.
-5. Open the RDP file, and then select Connect.
-6. On the Windows Security window, select More choices > Use a different account.
+3. If the program fails at some point, the program will delete the resource groups created by packer. Do not interrupt or exit the program. When it finishes, you can try again.
+4. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image.

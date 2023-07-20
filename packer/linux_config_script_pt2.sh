@@ -7,14 +7,16 @@ sudo mv /etc/php/8.1/fpm/php-fpm.conf /etc/php/8.1/fpm/php-fpm.conf.ORIG
 sudo mv ~/php-fpm.conf /etc/php/8.1/fpm/php-fpm.conf
 sudo mv /etc/php/8.1/fpm/php.ini /etc/php/8.1/fpm/php.ini.ORIG
 sudo mv ~/php.ini /etc/php/8.1/fpm/php.ini
-sudo systemctl restart php8.1-fpm
 
-# monit
-sudo mv ~/monitrc /etc/monit/monitrc
-sudo mv ~/monitd_mphhopackertest.conf /etc/monit.d/mphhopackertest.conf
-chmod 600 /usr/local/etc/monitrc
-service monit restart
-systemctl restart monit
+# TODO this command almost always fails in packer
+# sudo systemctl restart php8.1-fpm
+
+# TODO monit
+# sudo mv ~/monitrc /etc/monit/monitrc
+# sudo mv ~/monitd_mphhopackertest.conf /etc/monit.d/mphhopackertest.conf
+# chmod 600 /usr/local/etc/monitrc
+# service monit restart
+# systemctl restart monit
 
 # TODO SSH KEYGEN
 
