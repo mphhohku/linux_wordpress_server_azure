@@ -1,10 +1,10 @@
 # Hands-on Linux: Self-hosted WordPress for Linux Beginners (Azure Edition)
 
-This is an adapation of the Udemy Course [Hands-on Linux: Self-Hosted WordPress for Linux Beginners](https://www.udemy.com/hands-on-linux-self-hosted-wordpress-for-linux-beginners/) by Mr David Cohem. The content and instructions are tweaked for deployment in the Microsoft Azure environment.
+This is an adapation of the Udemy Course [Hands-on Linux: Self-Hosted WordPress for Linux Beginners](https://www.udemy.com/hands-on-linux-self-hosted-wordpress-for-linux-beginners/) by Mr David Cohen. The content and instructions are tweaked for deployment in the Microsoft Azure environment.
 
 You may view my WordPress site [here](https://www.mphho.com).
 
-A image of the Linux VM (Sections 1 to 7, just before installation of WordPress due to limitation of mysql-secure-installation) can be created automatically using HashiCorp Packer. The instructions are in the [11-automate-packer.md](11-automate-packer.md) file.
+Using HashiCorp Packer, an image of the Linux VM (Sections 1 to 7, just before installation of WordPress due to limitation of mysql-secure-installation) can be created automatically on Azure. The instructions are in the [11-automate-packer.md](11-automate-packer.md) file.
 
 I used GitHub Copilot to help me build this project and make documentation.
 
