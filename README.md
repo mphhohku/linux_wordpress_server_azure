@@ -4,7 +4,7 @@ This is an adapation of the Udemy Course [Hands-on Linux: Self-Hosted WordPress 
 
 You may view my WordPress site [here](https://www.mphho.com).
 
-Using HashiCorp Packer, an image of the Linux VM (Sections 1 to 7, just before installation of WordPress due to limitation of mysql-secure-installation) can be created automatically on Azure. The instructions are in the [11-automate-packer.md](11-automate-packer.md) file.
+Using HashiCorp Packer, an image of the Linux VM (Sections 1 to 7) can be created automatically on Azure. The instructions are in the [11-automate-packer.md](11-automate-packer.md) file.
 
 I used GitHub Copilot to help me build this project and make documentation.
 
