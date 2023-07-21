@@ -42,7 +42,7 @@ Major hiccups and mitigation (I added my own notes in the respective sections)
 - Section 7 - WordPress malconfiguration: Use mysql commands to alter settings in the database when locked out of the web dashboard
 - Section 8 - Unable to conduct SSH forwarding to Monit web portal: set up SSH key for default azure user first before using ssh tunneling
 - Section 10 - Needed to reset MySQL root password: follow the instructions online
-- Section 13 - Debugging: quite minor, sometimes Packer can be quite frustrating to debug because it can even fail at apt update even with sudo access. The only thing that can be done is to wait for everything to be deleted and retry.
+- Section 13 - Debugging: sometimes Packer can be quite frustrating to debug because it can even fail at apt update even with sudo access, or fail at php-fpm when specified the 7.4 version instead of 8.1. Packer doesn't handle errors very gracefully and will shut down everythig when a line was not executed. The only thing that can be done is to wait for azure packer resources to be automatically deleted and retry.
 - Linux VM becomes slow and unresponsive after a weekend: restart the vm with sudo reboot
 
 Future improvement

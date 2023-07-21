@@ -48,26 +48,22 @@ Edit the ``wordpress-azure-ubuntu.pkr.hcl`` file in the ``packer`` directory. Re
 ```
 	packer build wordpress-azure-ubuntu.pkr.hcl
 ```
-3. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image.
+3. If the program fails at some point, the program will delete the resource groups created by packer. Do not interrupt or exit the program. When it finishes, you can try again.
+4. After the build process finishes, note the value of the `image_id` property in the output. You use this value to create a virtual machine from the image. Also, note the SQL password several lines above.
 
 ## Create a virtual machine from the image
-1. In the Azure portal, select Create a resource > Compute > Virtual machine.
-2. On the Basics tab, enter the following values:
-- Subscription: Select your subscription.
-- Resource group: Select the resource group that you created.
-- Virtual machine name: Enter a name for the virtual machine.
-- Region: Select the region that you used when you created the resource group.
-- Image: Select the image that you created.
-- Size: Select a size for the virtual machine.
-- Authentication type: Select Password.
-- Username: Enter a username for the virtual machine.
-- Password: Enter a password for the virtual machine.
-3. Select Review + create, and then select Create.
+1. Go to Azure portal and serach for Images. Click on the image you just created.
+2. Click on Create VM.
+3. Fill in the details. You can use the following values:
+- Name: TestVM
+- Availability options: No infrastructure redundancy required
+- Select inbound port: HTTP, SSH
+- Licensing: Other
+4. In the networking tab, leave everything else as default.
+5. Review + Create
 
-## Connect to the virtual machine
-1. In the Azure portal, select Virtual machines.
-2. Select the virtual machine that you created.
-3. On the Overview page, select Connect.
-4. On the Connect to virtual machine page, select Download RDP file.
-5. Open the RDP file, and then select Connect.
-6. On the Windows Security window, select More choices > Use a different account.
+## Test if you can access the website
+1. Go to the resource page of the VM. Copy the public IP address.
+2. Paste the IP address in your browser. You should see the WordPress setup site.
+3. Congratulations, your project is finished. You can now delete the resource group and the image.
+4. If you plan to keep using the VM, remember to manually install other packages such as Monit and Certbot as well as to reload/restart the services.
