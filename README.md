@@ -33,7 +33,7 @@ Backup
  - tar
 
 Automation
- - HashiCorp Packer: trying to adapt the AWS version into Azure, and also automate the setup of Monit which was omitted in the original course
+ - HashiCorp Packer
 
 ## Reflections
 
