@@ -25,8 +25,10 @@ WordPress setup
 Monitoring
  - Monit
 
-HTTPS
- - Letsencrypt Certbot
+Security
+ - Appropriate file permissions for configuration files
+ - SSH hardening: disable password login and authentication, use SSH keys
+ - HTTPS: Letsencrypt Certbot
 
 Backup
  - Crontab
